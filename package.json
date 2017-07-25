@@ -31,6 +31,7 @@
     "productName": "Learn Now",
     "files": [
       "app/**/*",
+      "build/icon.*",
       "node_modules/**/*",
       "package.json"
     ],
