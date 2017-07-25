@@ -41,12 +41,6 @@
     },
     "publish": {
       "provider": "github"
-    },
-    "win": {
-      "publish": [
-        "github"
-      ],
-      "remoteReleases": "https://github.com/praveengarimella/learn-now"
     }
   },
   "description": "A Simple Electron App with sqlite3 Integration",
