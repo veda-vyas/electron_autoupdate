@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "build"
   },
-  "repository": "https://github.com/praveengarimella/learn-now",
+  "repository": "https://github.com/veda-vyas/electron_autoupdate",
   "devDependencies": {
     "electron": "^1.6.11",
     "electron-builder": "^10.8.1",
