@@ -1,0 +1,56 @@
+{
+  "name": "learnnow",
+  "version": "0.0.1",
+  "scripts": {
+    "postinstall": "install-app-deps",
+    "start": "electron .",
+    "rebuild": "electron-rebuild -f -w sqlite3",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "build"
+  },
+  "repository": "https://github.com/praveengarimella/learn-now",
+  "devDependencies": {
+    "electron": "^1.6.11",
+    "electron-builder": "^10.8.1",
+    "electron-compile": "^6.4.1",
+    "electron-prebuilt-compile": "^1.6.11",
+    "electron-rebuild": "^1.5.11"
+  },
+  "dependencies": {
+    "angular": "1.5.5",
+    "angular-route": "^1.5.8",
+    "bootstrap": "^3.3.6",
+    "electron-auto-updater": "^1.0.0",
+    "howler": "^2.0.1",
+    "jquery": "^3.2.1",
+    "knex": "^0.13.0",
+    "sqlite3": "^3.1.8"
+  },
+  "build": {
+    "appId": "com.example.learnnow",
+    "productName": "Learn Now",
+    "files": [
+      "app/**/*",
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "linux": {
+      "target": [
+        "deb"
+      ]
+    },
+    "publish": {
+      "provider": "github"
+    },
+    "win": {
+      "publish": [
+        "github"
+      ],
+      "remoteReleases": "https://github.com/praveengarimella/learn-now"
+    }
+  },
+  "description": "A Simple Electron App with sqlite3 Integration",
+  "author": "Veda Vyas <vy@fju.us>",
+  "license": "MIT",
+  "main": "app/app.js"
+}

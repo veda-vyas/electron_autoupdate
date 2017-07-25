@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <title>Learn Now</title>
+  </head>
+  <body>
+    <h1 class="text-center">Learn Now</h1>
+    <h3>User Activity</h3>
+    <ul id="database"></ul>
+  </body>
+
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+    var knex = require('./db.js')(knex);
+
+    knex.insert({info: "Navigated to Home Page"}).into("UserActivity").then(function (id) {
+      console.log(id);
+    })
+    .finally(function() {
+      knex.destroy();
+    });
+
+    const electron = require('electron');
+    const ipc = electron.ipcRenderer;
+    document.addEventListener("DOMContentLoaded", function(){
+      ipc.send("mainWindowLoaded")
+      ipc.on("result", function(event, result){
+        let resultElement = document.getElementById('database');
+        for (var i = 0; i < result.length; i++) {
+          resultElement.innerHTML += "<li>"+result[i].info.toString()+"</li>";
+        }
+      })
+    })
+  </script>
+</html>
